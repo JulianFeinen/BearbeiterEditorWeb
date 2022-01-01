@@ -1,0 +1,35 @@
+*{
+    margin: 0px;
+}
+#listWrapper{
+    position: absolute;
+    width: 100%;
+    top:300px;
+    display: flex;
+    justify-content: center;
+}
+#BearbeiterListe{
+    border-collapse:collapse; /*macht das keine gaps zwischen den zellen sind */
+    width: 500px;
+    font-size: 20px;
+    font-family: arial,sans-serif;
+}
+td,th{
+    border-style:solid ;
+    border-color: #a7a7a7;
+    border-width: 2px;
+    text-align: left;
+    padding: 8px;
+}
+tr{
+    cursor: pointer;
+}
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+tr:hover:not(:first-child){
+    background-color: rgb(110, 110, 110);
+}
