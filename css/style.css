@@ -1,5 +1,6 @@
 *{
     margin: 0px;
+    box-sizing: border-box;
 }
 #listWrapper{
     position: absolute;
@@ -35,7 +36,44 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 tr:hover:not(:first-child){
-    background-color: rgb(146, 146, 146);
+    background-color: #929292;
     color:#ffffff;
     transition: 0.5s;
+}
+
+.modal{
+    position: fixed;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    border:2px solid #a7a7a7;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 80%;
+    font-size: 20px;
+    font-family: arial,sans-serif;
+    background-color: #dddddd;
+}
+.modal-header{
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #a7a7a7;
+}
+.modal-body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    row-gap: 10px;
+    padding: 10px 15px;
+    
+}
+.editwrapper{
+}
+.input{
+    height: 30px;
+    font-size: 20px;
+    margin-right: 10px;
 }
