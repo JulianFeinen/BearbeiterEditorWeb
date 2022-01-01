@@ -24,6 +24,10 @@ td,th{
 tr{
     cursor: pointer;
 }
+tr:first-child{
+    cursor:text;
+}
+
 tr:nth-child(odd) {
     background-color: #ffffff;
 }
@@ -31,5 +35,7 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 tr:hover:not(:first-child){
-    background-color: rgb(110, 110, 110);
+    background-color: rgb(146, 146, 146);
+    color:#ffffff;
+    transition: 0.5s;
 }
