@@ -18,14 +18,25 @@
         </table>
     </div>
     <div id="modal" class="modal">
-        <div class="modal-header"><div class="Title">Editor</div><button class="close-button">&times;</button></div>
+        <div class="modal-header"><div class="modal-title">Editor</div><button onclick="closeButton()" class="close-button">&times;</button></div>
         <div class="modal-body">
-            <div class="editwrapper divVorname"><input class="input Vorname"></input>Vorname</div>
-            <div class="editwrapper divNachname"><input class="input Nachname"></input>Nachname</div>
-            <div class="editwrapper divUsername"><input class="input Username"></input>Username</div>
-            <div class="editwrapper divBearbeiterID"><input class="input BearbeiterID">BearbeiterID</input></div>
+            <input id="iVorname" class="input"></input>Vorname
+            <input id="iNachname" class="input"></input>Nachname
+            <input id="iUsername" class="input"></input>Username
+            <input id="iBearbeiterID" class="input"></input>BearbeiterID
+            <button onclick="btnSpeichern()" id="speichern">Speichern</button><button onclick="btnLoeschen()" id="loeschen">Löschen</button>
         </div>
     </div>
-    <div id="overlay"></div>
+    <div onclick="closeButton()" id="overlay"></div>
+    <div id="loeschen-modal">
+        Sind Sie sicher, dass Sie den Bearbeiter aus der gesamten Liste löschen wollen?
+        <div id="jaAbbrechenWrapper" class="jaAbbrechen">
+        <button onclick="loeschenJa()" id="ja">Ja</button>
+        <button onclick="loeschenNein()" id="NeinAbbrechen">Abbrechen</button>
+        </div>
+    </div>
+    
+    
+    <div onclick="loeschenOverlayZurueck()" id="loeschenOverlay"></div>
 </body>
 </html>

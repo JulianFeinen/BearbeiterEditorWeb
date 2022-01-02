@@ -1,4 +1,3 @@
-var wholeTable;
 class Person
 {
     constructor(Vorname, Nachname, Username, BearbeiterID) {
@@ -15,5 +14,54 @@ function RowSelected(rowID)
     objPerson.Nachname = document.getElementById("BearbeiterListe").rows[rowID].cells.item(1).innerHTML;
     objPerson.Username = document.getElementById("BearbeiterListe").rows[rowID].cells.item(2).innerHTML;
     objPerson.BearbeiterID = document.getElementById("BearbeiterListe").rows[rowID].cells.item(3).innerHTML;
-    alert(objPerson.Vorname + objPerson.Nachname + objPerson.Username + objPerson.BearbeiterID);
+    document.getElementById("iVorname").value = objPerson.Vorname;
+    document.getElementById("iNachname").value = objPerson.Nachname;
+    document.getElementById("iUsername").value = objPerson.Username;
+    document.getElementById("iBearbeiterID").value = objPerson.BearbeiterID;
+    document.getElementById("modal").style.transform = "translate(-50%,-50%) scale(1)";
+    document.getElementById("overlay").style.display = "block";
+    
+}
+function closeButton()
+{
+  CloseModalOne();
+}
+
+function loeschenOverlayZurueck()
+{
+  CloseModalTwo();
+  document.getElementById("overlay").style.display = "block";//must recover 1st overlay since only the first has to be deleted
+}
+
+function CloseModalTwo() {
+  document.getElementById("loeschen-modal").style.transform = "translate(-50%,-50%) scale(0)";
+  document.getElementById("loeschenOverlay").style.display = "none";
+}
+
+function btnSpeichern()
+{
+  CloseModalOne();
+}
+
+function CloseModalOne() {
+  document.getElementById("modal").style.transform = "translate(-50%,-50%) scale(0)";
+  document.getElementById("overlay").style.display = "none";
+}
+
+function btnLoeschen()
+{
+  document.getElementById("loeschen-modal").style.transform = "translate(-50%,-50%) scale(1)"
+  document.getElementById("loeschenOverlay").style.display = "block";
+  document.getElementById("overlay").style.display = "none";
+}
+
+function loeschenJa()
+{
+  CloseModalOne();
+  CloseModalTwo();
+}
+
+function loeschenNein()
+{
+  loeschenOverlayZurueck()
 }
