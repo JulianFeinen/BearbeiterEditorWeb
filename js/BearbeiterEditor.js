@@ -18,10 +18,14 @@ function RowSelected(rowID)
     document.getElementById("iNachname").value = objPerson.Nachname;
     document.getElementById("iUsername").value = objPerson.Username;
     document.getElementById("iBearbeiterID").value = objPerson.BearbeiterID;
-    document.getElementById("modal").style.transform = "translate(-50%,-50%) scale(1)";
-    document.getElementById("overlay").style.display = "block";
+    OpenModalOne();
     
 }
+function OpenModalOne() {
+  document.getElementById("modal").style.transform = "translate(-50%,-50%) scale(1)";
+  document.getElementById("overlay").style.display = "block";
+}
+
 function closeButton()
 {
   CloseModalOne();
@@ -50,9 +54,13 @@ function CloseModalOne() {
 
 function btnLoeschen()
 {
-  document.getElementById("loeschen-modal").style.transform = "translate(-50%,-50%) scale(1)"
-  document.getElementById("loeschenOverlay").style.display = "block";
+  OpenModalTwo();
   document.getElementById("overlay").style.display = "none";
+}
+
+function OpenModalTwo() {
+  document.getElementById("loeschen-modal").style.transform = "translate(-50%,-50%) scale(1)";
+  document.getElementById("loeschenOverlay").style.display = "block";
 }
 
 function loeschenJa()

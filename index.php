@@ -9,8 +9,11 @@
     <title>Document</title>
 </head>
 <body>
+    <form action="./php/ReadCSV.php">
+        <button type="submit">csv nach datenbank schreiben</button>
+    </form>
     <div id="listWrapper">
-        <table id="BearbeiterListe">
+        <table id="BearbeiterListe">    
             <tr><th>Vorname</th><th>Nachname</th><th>Username</th><th>BearbeiterID</th></tr>
             <tr id="1" onclick="RowSelected(1)"><td id="1-julian">julian</td><td id="1-feinen">feinen</td><td id="1-j_feinen">j_feinen</td><td id="1id">1</td></tr>
             <tr id="2" onclick="RowSelected(2)"><td id="2-julian">julian</td><td id="2-feinen">feinen</td><td id="1-j_feinen">j_feinen</td><td id="2id">2</td></tr>
