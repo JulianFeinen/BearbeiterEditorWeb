@@ -4,8 +4,13 @@
 }
 #listWrapper{
     position: absolute;
-    width: 100%;
-    top:300px;
+    width:fit-content;
+    height:600px;
+    top:200px;
+    left: 50%;
+    transform: translate(-50%);
+    overflow-y: scroll;
+    overflow-x: hidden;
     display: flex;
     justify-content: center;
     z-index: 1;
@@ -101,6 +106,9 @@ tr:hover:not(:first-child){
     margin-right: 10px;
     border: 2px solid white;
     border-radius: 5px;
+}
+#iBearbeiterID{
+    pointer-events: none;
 }
 #speichern{
     width:200px;
