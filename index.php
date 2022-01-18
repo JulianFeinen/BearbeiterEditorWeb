@@ -15,8 +15,8 @@
     <form class="form-login">
         <p class="p-login">log in here:</p>
         <div class="login-wrapper">
-            <input value="Feinen_J" name="iusername" id="iusername" class="input" placeholder="username" onkeyup="resetColors()"></input>
-            <input value="snoopy" name="ipassword" id="ipassword" class="input" placeholder="password" onkeyup="resetColors()" type="password" maxlength="20"></input>
+            <input name="iusername" id="iusername" class="input" placeholder="username" onkeyup="resetColors()"></input>
+            <input name="ipassword" id="ipassword" class="input" placeholder="password" onkeyup="resetColors()" type="password" maxlength="20"></input>
         </div>
         <div class="btnLogin" id="btnLogin" onclick="Meinlogin()"><p>log in</p></div>
     </form>
