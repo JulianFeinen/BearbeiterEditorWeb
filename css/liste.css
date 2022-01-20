@@ -44,7 +44,7 @@ tr:nth-child(even) {
 tr:hover:not(:first-child){
     background-color: #929292;
     color:#ffffff;
-    transition: 0.5s;
+    transition: 200ms;
 }
 
 .modal{
@@ -54,14 +54,11 @@ tr:hover:not(:first-child){
     transform: translate(-50%,-50%) scale(0);
     border:2px solid #a7a7a7;
     width: 500px;
-    max-width: 80%;
-    height: auto;
-    max-height:80%;
+    height: 270px;
     font-size: 20px;
     font-family: arial,sans-serif;
     background-color: #dddddd;
     z-index: 3;
-    transition: 200ms ease-in-out;
 }
 .modal-header{
     padding: 10px 15px;
@@ -95,10 +92,10 @@ tr:hover:not(:first-child){
 .modal-body{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 30px 30px 30px 30px 30px 30px;
+    grid-template-rows: 30px 30px 30px 30px;
     row-gap: 15px;
     padding: 10px 15px;
-    
+    height: 200px;
 }
 .input{
     height: 30px;
@@ -107,12 +104,9 @@ tr:hover:not(:first-child){
     border: 2px solid white;
     border-radius: 5px;
 }
-#iBearbeiterID{
-    pointer-events: none;
-}
 #speichern{
     width:200px;
-    margin-top:20px;
+    margin-top:10px;
     height: 35px;
     font-size: 17px;
     border-radius: 0px;
@@ -123,7 +117,7 @@ tr:hover:not(:first-child){
 }
 #loeschen{
     width: 200px;
-    margin-top:20px;
+    margin-top:10px;
     height: 35px;
     font-size: 17px;
     border-radius: 0px;
@@ -163,7 +157,6 @@ tr:hover:not(:first-child){
     max-height:80%;
     font-size: 20px;
     font-family: arial,sans-serif;
-    transition: 200ms ease-in-out;
     z-index: 5;
 }
 #loeschenOverlay{

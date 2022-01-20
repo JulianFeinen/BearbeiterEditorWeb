@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/index.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/liste.css" rel="stylesheet">
     <script src="js/Login.js"></script>
     <script src="js/BearbeiterEditor.js"></script>
     <title></title>
@@ -15,8 +15,8 @@
     <form class="form-login">
         <p class="p-login">log in here:</p>
         <div class="login-wrapper">
-            <input name="iusername" id="iusername" class="input" placeholder="username" onkeyup="resetColors()"></input>
-            <input name="ipassword" id="ipassword" class="input" placeholder="password" onkeyup="resetColors()" type="password" maxlength="20"></input>
+            <input maxlength="20" value="Feinen_J" name="iusername" id="iusername" class="input" placeholder="username" onkeyup="resetColors()"></input>
+            <input maxlength="20" value="snoopy" name="ipassword" id="ipassword" class="input" placeholder="password" onkeyup="resetColors()" type="password" maxlength="20"></input>
         </div>
         <div class="btnLogin" id="btnLogin" onclick="Meinlogin()"><p>log in</p></div>
     </form>

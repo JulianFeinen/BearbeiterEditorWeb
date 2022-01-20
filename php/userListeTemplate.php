@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/liste.css" rel="stylesheet">
     <script src="js/BearbeiterEditor.js"></script>
     <title></title>
 </head>
@@ -18,7 +18,6 @@
             <input maxlength="20" id="iVorname" class="input"></input>Vorname
             <input maxlength="20" id="iNachname" class="input"></input>Nachname
             <input maxlength="20" id="iUsername" class="input"></input>Username
-            <input maxlength="20" id="iBearbeiterID" class="input"></input>BearbeiterID
             <button onclick="btnSpeichern()" id="speichern">Speichern</button><button onclick="btnLoeschen()" id="loeschen">Löschen</button>
         </div>
     </div>
@@ -32,6 +31,6 @@
     </div>
     
     
-    <div onclick="loeschenOverlayZurueck()" id="loeschenOverlay"></div>
+    <div id="loeschenOverlay"></div>
 </body>
 </html>

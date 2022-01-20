@@ -18,21 +18,23 @@ if (!isLengthokay(password))
 if(areInputsValid==true)
 {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
+    xmlhttp.onreadystatechange = function()
+    {
+      if (this.readyState == 4 && this.status == 200)
+      {
         if(this.responseText=="valid")
         {
-            getUserListe();
+            getUserTabelle();
         }
         else
         {
         document.getElementById("iusername").style.border = "2px solid rgb(245, 32, 32)";
         document.getElementById("ipassword").style.border = "2px solid rgb(245, 32, 32)";
-            openIncorrectText();
+        openIncorrectText();
         }
       }
     }
-    xmlhttp.open("GET", "/BearbeiterEditor/php/login.php?username=" + username+"&password="+password, true);
+    xmlhttp.open("GET", "./php/login.php?username=" + username+"&password="+password, true);
     xmlhttp.send();
 }
 areInputsValid=true;
@@ -57,15 +59,16 @@ function resetColors()
     document.getElementById("ipassword").style.border = "2px solid white";
     document.getElementById("incorrect").style.opacity = "0%";
 }
-
-function getUserListe()
+function getUserTabelle()
 {
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
+    xmlhttp.onreadystatechange = function()
+    {
+      if (this.readyState == 4 && this.status == 200)
+      {
         document.querySelector("html").innerHTML = this.responseText;
       }
     }
-    xmlhttp.open("GET", "/BearbeiterEditor/usertabelle.php?", true);
+    xmlhttp.open("GET", "./php/usertabelle.php?", true);
     xmlhttp.send();
 }
