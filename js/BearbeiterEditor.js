@@ -110,6 +110,41 @@ function loeschenJa()
 {
   CloseModalOne();
   CloseModalTwo();
+  var loeschenObj = new Person;
+  loeschenObj.BearbeiterID =objPerson.BearbeiterID;
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function()
+  {
+    if (this.readyState == 4 && this.status == 200)
+    {
+      if(this.responseText.includes("success"))
+      {
+        getUserListe();
+        return;
+      }
+      else if(this.responseText.includes("failure"))
+      {
+        alert("failed to update the database..");
+      }
+    }
+  }
+  xmlhttp.open("GET", "./php/loeschen.php?bearbeiterid=" + loeschenObj.BearbeiterID, true);
+  xmlhttp.send();
+}
+
+function btnTableReset()
+{
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function()
+  {
+    if (this.readyState == 4 && this.status == 200)
+    {
+      alert("the data table was reset");
+      getUserListe();
+    }
+  }
+  xmlhttp.open("GET", "./php/ReadCSV.php?", true);
+  xmlhttp.send();
 }
 
 function loeschenNein()

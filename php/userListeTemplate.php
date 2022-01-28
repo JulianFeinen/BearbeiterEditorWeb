@@ -9,6 +9,9 @@
     <title></title>
 </head>
 <body>
+    <div id="tablereset">
+        <button id="btnTableReset" onclick="btnTableReset()">Reset Table</button>
+    </div>
     <div id="listWrapper">
         [USERTABELLE]
     </div>

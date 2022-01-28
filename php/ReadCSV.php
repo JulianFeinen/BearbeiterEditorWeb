@@ -56,8 +56,4 @@ $sqlTableResult = pg_exec($pgHandle, $SqlResetTableScript);
 	}
 	pg_close($pgHandle);
 }
-
-
-
-
 ?>

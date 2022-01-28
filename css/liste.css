@@ -2,6 +2,25 @@
     margin: 0px;
     box-sizing: border-box;
 }
+#tablereset{
+    margin-top:155px;
+    display: flex;
+    justify-content: center;
+}
+#btnTableReset{
+    width:200px;
+    margin-top:10px;
+    height: 35px;
+    font-size: 17px;
+    border-radius: 0px;
+    border-width: 0px;
+    border-style: solid;
+    border-color: #dddddd;
+    transition: 300ms;
+}
+#btnTableReset:hover{
+    background-color: #a7a7a7;
+}
 #listWrapper{
     position: absolute;
     width:fit-content;
