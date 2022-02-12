@@ -8,18 +8,66 @@ class Person
   }
 }
 
+function onDrag()
+{
+  let getStyle = window.getComputedStyle(modalOne)
+  let Left = getStyle.left;
+  let Top = getStyle.top;
+  alert(Left, Top);
+}
+function fragwuerdig()
+{
+  if(document.contains(document.getElementById("listWrapper")))
+  {
+    alert("contains");
+  }
+  else
+  {
+    alert("nope");
+  }
+}
+  
+
+
+
+  
+
+// const modalOne = document.querySelector("#modal");
+// alert(modalOne);
+// const modalOneHeader = document.querySelector(".modal-header");
+//  modalOneHeader.addEventListener("mousedown", () =>{
+//   alert("id");
+// })
+
+
+
+
+
+
+
+
 function RowSelected(rowID)
 {
-  rowID = rowID-1;
-    objPerson = new Person;
-    objPerson.Vorname = document.getElementById("BearbeiterListe").rows[rowID].cells.item(0).innerHTML;
-    objPerson.Nachname = document.getElementById("BearbeiterListe").rows[rowID].cells.item(1).innerHTML;
-    objPerson.Username = document.getElementById("BearbeiterListe").rows[rowID].cells.item(2).innerHTML;
-    objPerson.BearbeiterID = rowID+1;
-    document.getElementById("iVorname").value = objPerson.Vorname;
-    document.getElementById("iNachname").value = objPerson.Nachname;
-    document.getElementById("iUsername").value = objPerson.Username;
-    OpenModalOne();
+  let trLength = document.getElementsByTagName("tr").length;
+  for(var i=0;i<trLength;i++)
+  {
+    if(document.getElementsByTagName("tr")[i].id==rowID)
+    {
+      objPerson = new Person;
+      objPerson.Vorname = document.getElementsByTagName("tr")[i].childNodes[0].innerHTML;
+      objPerson.Nachname = document.getElementsByTagName("tr")[i].childNodes[1].innerHTML;
+      objPerson.Username = document.getElementsByTagName("tr")[i].childNodes[2].innerHTML;
+      objPerson.BearbeiterID = document.getElementsByTagName("tr")[i].id;
+      document.getElementById("iVorname").value = objPerson.Vorname;
+      document.getElementById("iNachname").value = objPerson.Nachname;
+      document.getElementById("iUsername").value = objPerson.Username;
+      OpenModalOne();
+      break;
+    }
+  }
+
+
+
 }
 function btnSpeichern()
 {
