@@ -7,44 +7,43 @@ class Person
     this.BearbeiterID = BearbeiterID;
   }
 }
+listDetected=false;
 
-function onDrag()
+  
+const observer = new MutationObserver(function(mutations)
+{
+  if (document.contains(document.getElementById("listWrapper")))
+  {
+    alert("alarm")
+    observer.disconnect();
+    dragger()
+  }
+});
+
+
+
+function dragger()
+{
+  modalOne = document.querySelector("#modal");
+  modalOneHeader = document.querySelector(".modal-header");
+  modalOneHeader.addEventListener("mousedown", ()=>
+  {
+    window.addEventListener("mousemove", onDrag);
+  })
+  window.addEventListener("mouseup", ()=>
+  {
+    window.removeEventListener("mousemove", onDrag);
+  })
+}
+function onDrag(e)
 {
   let getStyle = window.getComputedStyle(modalOne)
-  let Left = getStyle.left;
-  let Top = getStyle.top;
-  alert(Left, Top);
+  let Left = parseFloat(getStyle.left);
+  let Top = parseFloat(getStyle.top);
+  document.getElementById("modal").style.left = String(Left + e.movementX)+"px";
+  document.getElementById("modal").style.top = String(Top + e.movementY)+"px";
 }
-function fragwuerdig()
-{
-  if(document.contains(document.getElementById("listWrapper")))
-  {
-    alert("contains");
-  }
-  else
-  {
-    alert("nope");
-  }
-}
-  
-
-
-
-  
-
-// const modalOne = document.querySelector("#modal");
-// alert(modalOne);
-// const modalOneHeader = document.querySelector(".modal-header");
-//  modalOneHeader.addEventListener("mousedown", () =>{
-//   alert("id");
-// })
-
-
-
-
-
-
-
+observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});
 
 function RowSelected(rowID)
 {
