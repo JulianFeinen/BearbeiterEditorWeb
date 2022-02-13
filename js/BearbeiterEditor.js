@@ -7,31 +7,29 @@ class Person
     this.BearbeiterID = BearbeiterID;
   }
 }
-listDetected=false;
 
-  
 const observer = new MutationObserver(function(mutations)
 {
   if (document.contains(document.getElementById("listWrapper")))
   {
-    alert("alarm")
     observer.disconnect();
-    dragger()
+    initDragstuff()
   }
 });
+observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});
 
-
-
-function dragger()
+function initDragstuff()
 {
   modalOne = document.querySelector("#modal");
   modalOneHeader = document.querySelector(".modal-header");
   modalOneHeader.addEventListener("mousedown", ()=>
   {
+    modalOneHeader.classList.add("active");
     window.addEventListener("mousemove", onDrag);
   })
   window.addEventListener("mouseup", ()=>
   {
+    modalOneHeader.classList.remove("active");
     window.removeEventListener("mousemove", onDrag);
   })
 }
@@ -43,8 +41,6 @@ function onDrag(e)
   document.getElementById("modal").style.left = String(Left + e.movementX)+"px";
   document.getElementById("modal").style.top = String(Top + e.movementY)+"px";
 }
-observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});
-
 function RowSelected(rowID)
 {
   let trLength = document.getElementsByTagName("tr").length;
@@ -64,9 +60,6 @@ function RowSelected(rowID)
       break;
     }
   }
-
-
-
 }
 function btnSpeichern()
 {
@@ -106,7 +99,6 @@ function btnSpeichern()
   xmlhttp.send();
 }  
 
-
 function btnLoeschen()
 {
   OpenModalTwo();
@@ -135,6 +127,8 @@ function CloseModalTwo() {
   }
 
 function CloseModalOne() {
+  document.getElementById("modal").style.left = "50%";
+  document.getElementById("modal").style.top = "50%";
   document.getElementById("modal").style.transform = "translate(-50%,-50%) scale(0)";
   closeOverlayOne();
 }
@@ -205,6 +199,7 @@ function getUserListe()
     xmlhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         document.querySelector("html").innerHTML = this.responseText;
+        initDragstuff();
       }
     }
     xmlhttp.open("GET", "./php/usertabelle.php?", true);

@@ -79,6 +79,10 @@ tr:hover:not(:first-child){
     background-color: #dddddd;
     z-index: 3;
 }
+.modal-header.active{
+    cursor: move;
+    user-select: none;
+}
 .modal-header{
     padding: 10px 15px;
     display: flex;
