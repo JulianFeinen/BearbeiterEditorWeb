@@ -38,8 +38,8 @@ function onDrag(e)
   let getStyle = window.getComputedStyle(modalOne)
   let Left = parseFloat(getStyle.left);
   let Top = parseFloat(getStyle.top);
-  document.getElementById("modal").style.left = String(Left + e.movementX)+"px";
-  document.getElementById("modal").style.top = String(Top + e.movementY)+"px";
+  modalOne.style.left = String(Left + e.movementX)+"px";
+  modalOne.style.top = String(Top + e.movementY)+"px";
 }
 function RowSelected(rowID)
 {
@@ -180,7 +180,6 @@ function btnTableReset()
   {
     if (this.readyState == 4 && this.status == 200)
     {
-      alert("the data table was reset");
       getUserListe();
     }
   }
