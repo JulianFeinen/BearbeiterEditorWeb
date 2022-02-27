@@ -51,7 +51,7 @@ tr{
     cursor: pointer;
 }
 tr:first-child{
-    cursor:text;
+    cursor:default;
 }
 
 tr:nth-child(odd) {
@@ -65,12 +65,26 @@ tr:hover:not(:first-child){
     color:#ffffff;
     transition: 200ms;
 }
-
+.sorter::after{
+    content: '';
+    position:absolute;
+    border: 17px solid transparent;
+    border-top-width: 15px;
+    border-top-color: #a7a7a7;
+    top: 15px;
+}
+.sortByUsername::after{
+    right:10px;
+}
+.sortByNachname::after{
+    right:195px;
+}
+.sortByVorname::after{
+    right:352.5px;
+}
 .modal{
     position: fixed;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%) scale(0);
+    transform:scale(0);
     border:2px solid #a7a7a7;
     width: 500px;
     height: 270px;
@@ -80,7 +94,6 @@ tr:hover:not(:first-child){
     z-index: 3;
 }
 .modal-header.active{
-    cursor: move;
     user-select: none;
 }
 .modal-header{
@@ -89,6 +102,7 @@ tr:hover:not(:first-child){
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #a7a7a7;
+    cursor:move;
 }
 .modal-title{
     font-size: 1.25em;

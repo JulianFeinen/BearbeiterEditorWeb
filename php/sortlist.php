@@ -1,18 +1,9 @@
 <?php
 require "pgconnect.inc.php";
-$templateInhalt = GetTemplateToString("userListeTemplate.php");
-$neueTabelle = getNeueTabelle("SELECT * FROM public.personal ORDER BY gid ASC;");
-$templateInhalt = str_replace("[USERTABELLE]", $neueTabelle, $templateInhalt);
+$columnname = $_REQUEST["columnname"];
+$neueTabelle = getNeueTabelle("SELECT * FROM public.personal ORDER BY $columnname ASC;");
 
-echo $templateInhalt;
-
-function GetTemplateToString($pfad)
-{
-    $handle = fopen($pfad, "r") or die("Unable to open file!");
-    $templateInhalt = fread($handle,filesize($pfad));
-    fclose($handle);
-    return $templateInhalt;
-}
+echo $neueTabelle;
 
 function getNeueTabelle($sqlSelect)
 {

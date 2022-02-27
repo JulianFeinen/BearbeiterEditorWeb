@@ -13,14 +13,19 @@ const observer = new MutationObserver(function(mutations)
   if (document.contains(document.getElementById("listWrapper")))
   {
     observer.disconnect();
-    initDragstuff()
+    initDragstuff();
   }
 });
-observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});
 
+observer.observe(document, {attributes: false, childList: true, characterData: false, subtree:true});
+function initSorting()
+{
+  
+}
 function initDragstuff()
 {
   modalOne = document.querySelector("#modal");
+  centerModalOne();
   modalOneHeader = document.querySelector(".modal-header");
   modalOneHeader.addEventListener("mousedown", ()=>
   {
@@ -40,6 +45,30 @@ function onDrag(e)
   let Top = parseFloat(getStyle.top);
   modalOne.style.left = String(Left + e.movementX)+"px";
   modalOne.style.top = String(Top + e.movementY)+"px";
+}
+window.addEventListener("resize", centerModalOne, false)
+  function centerModalOne()
+  {
+    modalOne.style.left = "50%";
+    modalOne.style.left = parseFloat(document.defaultView.getComputedStyle(modalOne).left) - (parseFloat(document.defaultView.getComputedStyle(modalOne).width))/2 + "px";
+    modalOne.style.top = "50%";
+    modalOne.style.top = parseFloat(document.defaultView.getComputedStyle(modalOne).top) - (parseFloat(document.defaultView.getComputedStyle(modalOne).height))/2 + "px";
+  }
+var vorname = "vorname";//variable aus php existiert hier in js nicht. Wird aber gesucht
+var nachname = "nachname";
+var username = "username";
+function sortTableby(columnName)
+{
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function()
+  {
+    if (this.readyState == 4 && this.status == 200)
+    {
+      document.querySelector("#listWrapper").innerHTML = this.responseText;
+    }
+  }
+  xmlhttp.open("GET", "./php/sortlist.php?columnname=" + columnName, true);
+  xmlhttp.send();
 }
 function RowSelected(rowID)
 {
@@ -97,7 +126,12 @@ function btnSpeichern()
   }
   xmlhttp.open("GET", "./php/update.php?vorname=" + speichernObj.Vorname+"&nachname="+speichernObj.Nachname+"&username="+speichernObj.Username+"&bearbeiterid="+speichernObj.BearbeiterID, true);
   xmlhttp.send();
-}  
+}
+
+function changeElementStyle(selector,attribute,value)//function to change the elements style
+{
+  document.querySelector(selector).setAttribute("style", attribute+":"+value+";");
+}
 
 function btnLoeschen()
 {
@@ -107,45 +141,49 @@ function btnLoeschen()
 
 function closeButton()
 {
-    CloseModalOne();
+  CloseModalOne();
 }
 
 function OpenModalOne() {
-  document.getElementById("modal").style.transform = "translate(-50%,-50%) scale(1)";
+  centerModalOne();
+  turnModalVisible();
+  initDragstuff();
   openOverlayOne();
 }
-  function openOverlayOne() {
-  document.getElementById("overlay").style.display = "block";
-  }
+
+function turnModalVisible() {
+  changeElementStyle("#modal","transform","scale(1)");
+}
+
+function openOverlayOne() {
+  changeElementStyle("#overlay","display","block");
+}
 
 function CloseModalTwo() {
-  document.getElementById("loeschen-modal").style.transform = "translate(-50%,-50%) scale(0)";
+  changeElementStyle("#loeschen-modal","transform","translate(-50%,-50%) scale(0)");
   closeOverlayTwo();
 }
-  function closeOverlayTwo() {
-  document.getElementById("loeschenOverlay").style.display = "none";
-  }
+function closeOverlayTwo() {
+  changeElementStyle("#loeschenOverlay","display","none");
+}
 
 function CloseModalOne() {
-  document.getElementById("modal").style.left = "50%";
-  document.getElementById("modal").style.top = "50%";
-  document.getElementById("modal").style.transform = "translate(-50%,-50%) scale(0)";
+  changeElementStyle("#modal","transform","scale(0)");
   closeOverlayOne();
 }
 
-
-  function closeOverlayOne() {
-  document.getElementById("overlay").style.display = "none";
-  }
+function closeOverlayOne() {
+  changeElementStyle("#overlay","display","none");
+}
 
 function OpenModalTwo() {
-  document.getElementById("loeschen-modal").style.transform = "translate(-50%,-50%) scale(1)";
+  changeElementStyle("#loeschen-modal","transform","translate(-50%,-50%) scale(1)");
   openOverlayTwo();
 }
 
-  function openOverlayTwo() {
-  document.getElementById("loeschenOverlay").style.display = "block";
-  }
+function openOverlayTwo() {
+  changeElementStyle("#loeschenOverlay","display","block");
+}
 
 function loeschenJa()
 {

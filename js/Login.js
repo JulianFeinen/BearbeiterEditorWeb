@@ -1,15 +1,15 @@
 areInputsValid=true;
 function Meinlogin()
 {
-username = document.getElementById("iusername").value;
-password = document.getElementById("ipassword").value;
-if (!isLengthokay(username))    
+LoginUsername = document.getElementById("iusername").value;
+LoginPassword = document.getElementById("ipassword").value;
+if (!isLengthokay(LoginUsername))    
 {
     document.getElementById("iusername").style.border = "2px solid rgb(245, 32, 32)";
     openIncorrectText();
     areInputsValid=false;
 }
-if (!isLengthokay(password))
+if (!isLengthokay(LoginPassword))
 {
     document.getElementById("ipassword").style.border = "2px solid rgb(245, 32, 32)";
     openIncorrectText();
@@ -34,7 +34,7 @@ if(areInputsValid==true)
         }
       }
     }
-    xmlhttp.open("GET", "./php/login.php?username=" + username+"&password="+password, true);
+    xmlhttp.open("GET", "./php/login.php?username=" + LoginUsername+"&password="+LoginPassword, true);
     xmlhttp.send();
 }
 areInputsValid=true;
